@@ -3,7 +3,24 @@ body {
     font-family: Arial;
     color: white;
     text-align: center;
-    background: radial-gradient(circle, #6a0dad, #000);
+    background: radial-gradient(circle at top, #7b2cbf, #000);
+    overflow-x: hidden;
+}
+
+/* FUNDO ANIMADO SUAVE */
+body::after {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent);
+    animation: fundo 15s linear infinite;
+    z-index: 0;
+}
+
+@keyframes fundo {
+    from {transform: translate(0,0);}
+    to {transform: translate(-50%, -50%);}
 }
 
 /* TELAS */
@@ -14,16 +31,23 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    transition: all 0.8s ease;
+    z-index: 1;
+    position: relative;
 }
 
 .tela.ativa {
     display: flex;
+    animation: zoomFade 0.8s;
 }
 
 /* TEXTO */
 .glow {
-    font-size: 2.5rem;
-    text-shadow: 0 0 20px #ff00ff;
+    font-size: 2.8rem;
+    text-shadow: 
+        0 0 10px #fff,
+        0 0 30px #c77dff,
+        0 0 60px #9d4edd;
 }
 
 /* FOTO */
@@ -31,6 +55,7 @@ img {
     width: 250px;
     border-radius: 20px;
     margin: 20px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
 }
 
 /* BOTÕES INSANOS */
@@ -60,18 +85,19 @@ img {
 }
 
 .botao:hover {
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-4px) scale(1.07);
     background-position: right center;
 
     box-shadow: 
-        0 12px 35px rgba(168, 85, 247, 0.6),
-        0 0 15px rgba(255, 0, 200, 0.4);
+        0 15px 40px rgba(168, 85, 247, 0.7),
+        0 0 20px rgba(255, 0, 200, 0.5);
 }
 
 .botao:active {
-    transform: scale(0.97);
+    transform: scale(0.95);
 }
 
+/* BRILHO NO BOTÃO */
 .botao::before {
     content: "";
     position: absolute;
@@ -83,7 +109,7 @@ img {
     background: linear-gradient(
         120deg,
         transparent,
-        rgba(255,255,255,0.4),
+        rgba(255,255,255,0.5),
         transparent
     );
 
@@ -97,18 +123,35 @@ img {
 /* BOTÃO MÚSICA */
 .botao-musica {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     border-radius: 50%;
-    padding: 10px 15px;
+    padding: 12px;
     border: none;
     cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
 }
 
-/* CARTA */
+/* CARTA ESTILO REAL */
 .envelope {
     font-size: 5rem;
     cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+#cartaTexto {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
 }
 
 .hidden {
@@ -117,18 +160,65 @@ img {
 
 /* FINAL */
 .final {
-    font-size: 3rem;
-    animation: pulse 1s infinite;
+    font-size: 3.5rem;
+    animation: pulse 1.2s infinite;
+    text-shadow: 0 0 20px #ff00ff;
 }
 
+/* ANIMAÇÕES */
 @keyframes pulse {
     0% {transform: scale(1);}
-    50% {transform: scale(1.2);}
+    50% {transform: scale(1.25);}
+}
+
+/* CORAÇÕES */
+#coracoes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.coracao {
+    position: absolute;
+    bottom: 0;
+    font-size: 22px;
+    animation: subir linear forwards;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* TRANSIÇÃO CINEMATOGRÁFICA */
+@keyframes zoomFade {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
     img {
         width: 180px;
+    }
+
+    .glow {
+        font-size: 2rem;
+    }
+
+    .final {
+        font-size: 2.5rem;
     }
 }

@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<!-- CORAÇÕES -->
+<div id="coracoes"></div>
+
 <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
 </audio>
@@ -16,7 +19,7 @@
 
 <!-- TELA 1 -->
 <div class="tela ativa" id="tela1">
-    <h1 class="glow">Thifany Mackowiak 💜</h1>
+    <h1 class="glow" id="nome"></h1>
     <p id="texto"></p>
     <button class="botao" onclick="iniciar()">Começar ❤️</button>
 </div>
@@ -47,7 +50,7 @@
 
     <div id="cartaTexto" class="hidden">
         <p>
-       Eu não sei explicar o quanto você é importante pra mim...
+        Eu não sei explicar o quanto você é importante pra mim...
         Quando te conheci, minha vida ganhou um novo sentido, uma nova cor. Você é a luz que ilumina meus dias mais escuros, a razão do meu sorriso e a calma no meio da tempestade. 
         Cada momento ao seu lado é um presente que eu valorizo profundamente. Você me ensinou o verdadeiro significado do amor, da paciência e da compreensão. Com você, aprendi a ser uma pessoa melhor, a amar incondicionalmente e a valorizar cada instante juntos. Amo amar você, Thifany, e quero passar o resto da minha vida ao seu lado, construindo memórias, superando desafios e celebrando cada vitória juntos.
         Eu sei que nem tudo é perfeito, que enfrentamos desafios e momentos difíceis, mas cada obstáculo que superamos juntos só fortalece o nosso amor. Eu prometo estar ao seu lado em cada passo do caminho, apoiando seus sonhos, compartilhando suas alegrias e enfrentando as dificuldades de mãos dadas.
@@ -55,6 +58,8 @@
         <br><br>
         Mas eu sei que minha vida é melhor com você nela.<br><br>
         Eu te amo muito, Thifany 💜
+        </p>
+
         <button class="botao" onclick="trocar(6)">Final ❤️</button>
     </div>
 </div>
@@ -62,6 +67,9 @@
 <!-- FINAL -->
 <div class="tela" id="tela6">
     <h1 class="final">QUER SER MINHA PRA SEMPRE? 💜</h1>
+
+    <button class="botao" onclick="respostaSim()">SIM 💖</button>
+    <button class="botao" onclick="fugir()">não 😳</button>
 </div>
 
 <script src="script.js"></script>
