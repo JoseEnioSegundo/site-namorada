@@ -12,46 +12,42 @@
     <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<button id="btnMusica" onclick="toggleMusica()">🔊</button>
-
-<div id="coracao-container"></div>
+<button id="btnMusica" class="botao-musica" onclick="toggleMusica()">🔊</button>
 
 <!-- TELA 1 -->
 <div class="tela ativa" id="tela1">
     <h1 class="glow">Thifany 💜</h1>
     <p id="texto"></p>
-    <button onclick="iniciar()">Começar</button>
+    <button class="botao" onclick="iniciar()">Começar ❤️</button>
 </div>
 
 <!-- TELA 2 -->
 <div class="tela" id="tela2">
     <img src="assets/img/foto.jpg">
-    <p>Você mudou tudo na minha vida...</p>
-    <button onclick="trocar(3)">Continuar</button>
+    <p>Você mudou minha vida...</p>
+    <button class="botao" onclick="trocar(3)">Continuar 💜</button>
 </div>
 
 <!-- TELA 3 -->
 <div class="tela" id="tela3">
     <h2 id="dias"></h2>
-    <p>dias com você... e eu viveria tudo de novo.</p>
-    <button onclick="trocar(4)">Continuar</button>
+    <p>dias com você 💖</p>
+    <button class="botao" onclick="trocar(4)">Continuar ✨</button>
 </div>
 
 <!-- TELA 4 -->
 <div class="tela" id="tela4">
-    <p>Eu prometo cuidar de você, te fazer sorrir e nunca soltar sua mão.</p>
-    <button onclick="abrirCarta()">Uma coisa importante...</button>
+    <p>Clique abaixo... 💌</p>
+    <button class="botao" onclick="mostrarCarta()">Abrir meu coração 💜</button>
 </div>
 
 <!-- CARTA -->
-<div class="tela" id="carta">
-    <div class="envelope" onclick="abrirEnvelope()">
-        💌
-    </div>
+<div class="tela" id="tela5">
+    <div class="envelope" onclick="abrirEnvelope()">💌</div>
 
-    <div class="conteudo-carta hidden">
+    <div id="cartaTexto" class="hidden">
         <p>
-        Eu não sei explicar o quanto você é importante pra mim...
+       Eu não sei explicar o quanto você é importante pra mim...
         Quando te conheci, minha vida ganhou um novo sentido, uma nova cor. Você é a luz que ilumina meus dias mais escuros, a razão do meu sorriso e a calma no meio da tempestade. <br><br>
         Cada momento ao seu lado é um presente que eu valorizo profundamente. Você me ensinou o verdadeiro significado do amor, da paciência e da compreensão. Com você, aprendi a ser uma pessoa melhor, a amar incondicionalmente e a valorizar cada instante juntos. Amo amar você, Thifany, e quero passar o resto da minha vida ao seu lado, construindo memórias, superando desafios e celebrando cada vitória juntos. <br><br>
         Eu sei que nem tudo é perfeito, que enfrentamos desafios e momentos difíceis, mas cada obstáculo que superamos juntos só fortalece o nosso amor. Eu prometo estar ao seu lado em cada passo do caminho, apoiando seus sonhos, compartilhando suas alegrias e enfrentando as dificuldades de mãos dadas.
@@ -59,13 +55,12 @@
         <br><br>
         Mas eu sei que minha vida é melhor com você nela.<br><br>
         Eu te amo muito, Thifany 💜
-        </p>
-        <button onclick="trocar(5)">Final...</button>
+        <button class="botao" onclick="trocar(6)">Final ❤️</button>
     </div>
 </div>
 
 <!-- FINAL -->
-<div class="tela" id="tela5">
+<div class="tela" id="tela6">
     <h1 class="final">EU TE AMO 💜</h1>
 </div>
 

@@ -1,6 +1,14 @@
-let atual = 1;
+let telaAtual = 1;
+let musica;
 
-// DIGITAÇÃO
+// INICIAR TUDO
+window.onload = function () {
+    musica = document.getElementById("musica");
+    escrever();
+    atualizarDias();
+};
+
+// TEXTO DIGITANDO
 const texto = "Eu fiz isso pra você...";
 let i = 0;
 
@@ -18,43 +26,39 @@ function iniciar() {
     trocar(2);
 }
 
-// TROCAR TELA
-function trocar(n) {
-    document.getElementById("tela" + atual)?.classList.remove("ativa");
-    document.getElementById("carta")?.classList.remove("ativa");
-
-    document.getElementById("tela" + n)?.classList.add("ativa");
-    atual = n;
+// TROCAR TELAS
+function trocar(num) {
+    document.getElementById("tela" + telaAtual).classList.remove("ativa");
+    document.getElementById("tela" + num).classList.add("ativa");
+    telaAtual = num;
 }
 
 // CARTA
-function abrirCarta() {
-    document.getElementById("tela4").classList.remove("ativa");
-    document.getElementById("carta").classList.add("ativa");
+function mostrarCarta() {
+    trocar(5);
 }
 
 function abrirEnvelope() {
-    document.querySelector(".conteudo-carta").classList.remove("hidden");
+    document.getElementById("cartaTexto").classList.remove("hidden");
 }
 
 // CONTADOR
 const inicio = new Date("2026-01-18");
 
-function atualizar() {
-    const dias = Math.floor((new Date() - inicio) / (1000*60*60*24));
+function atualizarDias() {
+    const dias = Math.floor((new Date() - inicio) / (1000 * 60 * 60 * 24));
     document.getElementById("dias").innerText = dias + " dias";
 }
-setInterval(atualizar, 1000);
 
-// MÚSICA COM FADE
-const musica = document.getElementById("musica");
+setInterval(atualizarDias, 1000);
 
+// MÚSICA
 function tocarMusica() {
     musica.volume = 0;
-    musica.play();
+    musica.play().catch(() => {});
 
     let vol = 0;
-    const fade = setInterval(() => {
+    let fade = setInterval(() => {
         if (vol < 1) {
             vol += 0.05;
             musica.volume = vol;
@@ -65,12 +69,11 @@ function tocarMusica() {
 }
 
 function toggleMusica() {
-    if (musica.paused) musica.play();
-    else musica.pause();
-}
+    if (!musica) return;
 
-// START
-window.onload = () => {
-    escrever();
-    atualizar();
-};
+    if (musica.paused) {
+        musica.play();
+    } else {
+        musica.pause();
+    }
+}

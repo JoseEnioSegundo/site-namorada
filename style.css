@@ -4,49 +4,26 @@ body {
     color: white;
     text-align: center;
     background: radial-gradient(circle, #6a0dad, #000);
-    overflow-x: hidden;
-}
-
-/* BOTÃO MÚSICA */
-#btnMusica {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
 }
 
 /* TELAS */
 .tela {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: 1s;
+    padding: 20px;
 }
 
-.ativa {
+.tela.ativa {
     display: flex;
-    animation: fade 1s;
 }
 
-@keyframes fade {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-/* GLOW */
+/* TEXTO */
 .glow {
-    font-size: 3rem;
-    animation: brilho 2s infinite;
-}
-
-@keyframes brilho {
-    0% {text-shadow: 0 0 10px #fff;}
-    50% {text-shadow: 0 0 30px #ff00ff;}
-    100% {text-shadow: 0 0 10px #fff;}
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px #ff00ff;
 }
 
 /* FOTO */
@@ -56,15 +33,82 @@ img {
     margin: 20px;
 }
 
+/* BOTÕES INSANOS */
+.botao {
+    margin-top: 25px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 50px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    color: white;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #c084fc, #a855f7, #9333ea);
+    background-size: 200% 200%;
+
+    box-shadow: 
+        0 8px 25px rgba(168, 85, 247, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+
+    transition: all 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.botao:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-position: right center;
+
+    box-shadow: 
+        0 12px 35px rgba(168, 85, 247, 0.6),
+        0 0 15px rgba(255, 0, 200, 0.4);
+}
+
+.botao:active {
+    transform: scale(0.97);
+}
+
+.botao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transition: 0.5s;
+}
+
+.botao:hover::before {
+    left: 100%;
+}
+
+/* BOTÃO MÚSICA */
+.botao-musica {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
 /* CARTA */
 .envelope {
     font-size: 5rem;
     cursor: pointer;
-}
-
-.conteudo-carta {
-    max-width: 400px;
-    margin-top: 20px;
 }
 
 .hidden {
@@ -84,6 +128,7 @@ img {
 
 /* MOBILE */
 @media (max-width: 600px) {
-    img {width: 180px;}
-    .glow {font-size: 2rem;}
+    img {
+        width: 180px;
+    }
 }
