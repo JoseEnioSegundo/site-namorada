@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pra você ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Música de fundo (Perfect - Ed Sheeran) -->
+    <audio autoplay loop id="musica">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Efeito de coração flutuante -->
+    <div id="coracao-container"></div>
+
+    <!-- TELA 1: Abertura -->
+    <div class="tela ativa" id="tela1">
+        <div class="container-abertura">
+            <h1 class="titulo-grande">✨ Especial para você ✨</h1>
+            <p id="texto" class="texto-digitando"></p>
+            <p class="mensagem-extra">Dois meses de puro amor 💜</p>
+            <button class="botao" onclick="irParaTela(2)">Continuar ❤️</button>
+        </div>
+    </div>
+
+    <!-- TELA 2: Mensagem com foto -->
+    <div class="tela" id="tela2">
+        <div class="container-tela">
+            <h2>Você mudou minha vida completamente... 💜</h2>
+            <img src="assets/img/foto.jpg" alt="Nossa foto" class="foto-grande">
+            <p class="subtitulo">Desde o primeiro momento em que te vi, soube que você seria a pessoa mais importante da minha vida</p>
+            <p class="subtitulo-pequeno">Você é lindaaaa demais! 🥰</p>
+            <button class="botao" onclick="irParaTela(3)">Próximo</button>
+        </div>
+    </div>
+
+    <!-- TELA 3: Contador de dias -->
+    <div class="tela" id="tela3">
+        <div class="container-tela">
+            <h2>Nosso Tempo Junto 💜</h2>
+            <div class="contador-box">
+                <p id="dias" class="numero-grande">✨</p>
+                <p class="legenda-grande">dias de puro amor com você</p>
+            </div>
+            <div class="momento-especial">
+                <p>E eu escolheria você todos esses dias DE NOVO e mais infinitas vezes! 🌹</p>
+                <p class="texto-rosa">Você é o melhor que já me aconteceu 💕</p>
+            </div>
+            <button class="botao" onclick="irParaTela(4)">Continuar</button>
+        </div>
+    </div>
+
+    <!-- TELA 4: Promessas -->
+    <div class="tela" id="tela4">
+        <div class="container-tela">
+            <h2 class="titulo-secao">Minhas promessas para você 💜</h2>
+            <div class="promessas">
+                <div class="promessa">
+                    <span class="emoji">💕</span>
+                    <p>Amar você cada vez mais fundo</p>
+                </div>
+                <div class="promessa">
+                    <span class="emoji">😊</span>
+                    <p>Fazer você rir MUITO todos os dias</p>
+                </div>
+                <div class="promessa">
+                    <span class="emoji">🛡️</span>
+                    <p>Proteger seu coração sempre</p>
+                </div>
+                <div class="promessa">
+                    <span class="emoji">✨</span>
+                    <p>Tornar cada momento mágico</p>
+                </div>
+                <div class="promessa">
+                    <span class="emoji">🌹</span>
+                    <p>Ser seu abraço quando precisar</p>
+                </div>
+                <div class="promessa">
+                    <span class="emoji">💜</span>
+                    <p>Nunca deixar você sozinha</p>
+                </div>
+            </div>
+            <button class="botao" onclick="irParaTela(5)">A coisa mais importante...</button>
+        </div>
+    </div>
+
+    <!-- TELA 5: Mensagem final -->
+    <div class="tela" id="tela5">
+        <div class="container-final">
+            <h1 class="titulo-final">EU TE AMO DEMAIS!</h1>
+            <p class="subtitulo-final">Thifany 💜</p>
+            <p class="mensagem-final">Você é meu amor, meu tudo!</p>
+            <div class="coracao-grande">💜</div>
+            <p class="mensagem-fundo">Feliz 2 meses de puro amor! 🎉</p>
+            <button class="botao" onclick="voltarAoInicio()">De novo? 💜</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
